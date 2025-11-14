@@ -12,9 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
 
     public Transform visual;
-    private Animator anim;
-
-    private bool IsFalling;    
+    private Animator anim;  
 
     void Start()
     {
@@ -44,5 +42,11 @@ public class PlayerMovement : MonoBehaviour
             visual.localScale = new Vector3(4, 4, 4);
         else if (moveInput < -0.01f)
             visual.localScale = new Vector3(-4, 4, 4);
+
+            anim.SetBool("IsFalling", Mathf.Abs(rb.linearVelocity.y) < 0f && isGrounded == false);
+                if (rb.linearVelocity.y < 0.1f)
+                    anim.SetBool("IsJumping", false);
+                else if (rb.linearVelocity.y > 0.1f)
+                    anim.SetBool("IsJumping", true);
     }
 }
