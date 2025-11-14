@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class DeathZoneController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Here you can implement what happens when the player enters the death zone
+            Debug.Log("Player has entered the death zone!");
+            // For example, you might want to reset the player's position or reduce health
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void ReloadCurrentScene()
     {
-        
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
 }
