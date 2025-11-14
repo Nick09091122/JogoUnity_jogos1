@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;     // Horizontal movement speed
+    public float moveSpeed = 25f;     // Horizontal movement speed
     public float jumpForce = 15f;    // Jump strength
     public Transform groundCheck;    // Empty GameObject at feet
     public float groundCheckRadius = 0.2f;
@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform visual;
     private Animator anim;
-    
+
+    private bool IsFalling;    
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         // Check if touching the ground
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 

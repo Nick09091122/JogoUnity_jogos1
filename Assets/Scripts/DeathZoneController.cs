@@ -7,7 +7,7 @@ public class DeathZoneController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Here you can implement what happens when the player enters the death zone
-            Debug.Log("Player has entered the death zone!");
+            ReloadCurrentScene();
             // For example, you might want to reset the player's position or reduce health
         }
     }
