@@ -3,16 +3,18 @@ using System.Collections.Generic;
 
 public class EnemyWaypointMovement : MonoBehaviour
 {
-
     [Header("Waypoints")]
-    public List <Transform> waypoints; // List of waypoints for the enemy to follow
+    public List<Transform> waypoints; // List of waypoints for the enemy to follow
+    
     [Header("Movement Settings")]
     public float moveSpeed = 5f; // Speed of the enemy
     public float waypointReachedDistance = 0.1f; // Distance to consider waypoint reached
     public bool loop = true; // Should the enemy loop through waypoints
+    
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private int currentWaypointIndex = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +22,7 @@ public class EnemyWaypointMovement : MonoBehaviour
 
         if (waypoints == null || waypoints.Count == 0)
         {
-            Debug.LogError("Waypoints not set for InimigoSimples");
+            Debug.LogError("Waypoints not set for EnemyWaypointMovement");
             enabled = false; // Disable the script if no waypoints are set
             return;
         }
@@ -36,20 +38,22 @@ public class EnemyWaypointMovement : MonoBehaviour
 
     void MoveTowardsWaypoint()
     {
-        if(waypoints.count == 0) return;
+        if (waypoints.Count == 0) return;
 
         Vector2 targetPosition = waypoints[currentWaypointIndex].position;
-        movementDirection = (targetPosition -(Vector2)transform.position).normalized;
+        movementDirection = (targetPosition - (Vector2)transform.position).normalized;
         rb.linearVelocity = movementDirection * moveSpeed;
     }
-    void SetTargetWaypoint()
-    {
-      if (waypoints.count == 0) return;
 
-      currentWaypointIndex = index;
-      Vector2 targetPosition = waypoints[currentWaypointIndex].position;
-      movementDirection = (targetPosition - (Vector2)transform.position).normalized;
+    void SetTargetWaypoint(int index)
+    {
+        if (waypoints.Count == 0) return;
+
+        currentWaypointIndex = index;
+        Vector2 targetPosition = waypoints[currentWaypointIndex].position;
+        movementDirection = (targetPosition - (Vector2)transform.position).normalized;
     }
+
     void CheckIfReachedWaypoint()
     {
         if (waypoints.Count == 0) return;
@@ -58,21 +62,23 @@ public class EnemyWaypointMovement : MonoBehaviour
 
         if (distanceToWaypoint <= waypointReachedDistance)
         {
-           GotoNextWaypoint();
+            GotoNextWaypoint();
         }
     }
+
     void GotoNextWaypoint()
     {
         currentWaypointIndex++;
 
-        if (currentWaypointIndex >= waypoints.count)
+        if (currentWaypointIndex >= waypoints.Count)
         {
             if (loop)
             {
                 currentWaypointIndex = 0;
-            } else
+            }
+            else
             {
-                enabled = false; // Stop moving if not looping
+                enabled = true; // Stop moving if not looping
                 rb.linearVelocity = Vector2.zero;
                 return;
             }
