@@ -45,8 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
             anim.SetBool("IsFalling", Mathf.Abs(rb.linearVelocity.y) < 0f && isGrounded == false);
                 if (rb.linearVelocity.y < 0.1f)
-                    anim.SetBool("IsJumping", false);
+                    anim.SetBool("IsFalling", false);
                 else if (rb.linearVelocity.y > 0.1f)
-                    anim.SetBool("IsJumping", true);
+                    anim.SetBool("IsFalling", true);
     }
 }
