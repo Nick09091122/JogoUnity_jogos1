@@ -10,10 +10,16 @@ public class EnemyWaypointMovement : MonoBehaviour
     public float moveSpeed = 5f; // Speed of the enemy
     public float waypointReachedDistance = 0.1f; // Distance to consider waypoint reached
     public bool loop = true; // Should the enemy loop through waypoints
+
+    [Header("Combat Settings")]
+    public float damage = 1f;
+    public float attackRate = 1f;
+    public float kockbackForce = 7f;
     
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private int currentWaypointIndex = 0;
+    private float lastAttackTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -85,4 +91,32 @@ public class EnemyWaypointMovement : MonoBehaviour
         }
         SetTargetWaypoint(currentWaypointIndex);
     }
-}
+        void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            TryAttackPlayer(collision.gameObject);
+        }
+    }
+        void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            TryAttackPlayer(collision.gameObject);
+        }
+    }
+        void TryAttackPlayer(GameObject player)
+    {
+        if (Time.time >= lastAttackTime + attackRate)
+        {
+            playerHealth = player.GetComponent<currentHealth>();
+            if (playerHealth != null)
+            {
+                Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
+
+                playerHealth.TakeDamage(damage, knockbackDirection, kockbackForce);
+                lastAttackTime = Time.time;
+                }
+            }
+        }
+    }
