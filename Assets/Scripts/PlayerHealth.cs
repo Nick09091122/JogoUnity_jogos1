@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 10f;
     public float currentHealth;
     private Rigidbody2D rb;
+    public HealthBar healthBar;
     void Start()
     {
         currentHealth = maxHealth;
