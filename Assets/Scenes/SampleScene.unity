@@ -1463,6 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
   parallaxFactor: -0.005
+  parallaxFactorY: 0
   infiniteScroll: 0
 --- !u!212 &424117902
 SpriteRenderer:
@@ -2152,7 +2153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4726668c940cdb34293b32375e599298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
-  parallaxFactor: -0.1
+  parallaxFactor: -0.2
+  parallaxFactorY: -0.1
   infiniteScroll: 1
 --- !u!212 &676726515
 SpriteRenderer:
@@ -3232,6 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
   parallaxFactor: 0
+  parallaxFactorY: 0
   infiniteScroll: 1
 --- !u!212 &1168382897
 SpriteRenderer:
@@ -3820,7 +3823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4726668c940cdb34293b32375e599298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
-  parallaxFactor: -0.2
+  parallaxFactor: -0.1
+  parallaxFactorY: -0.05
   infiniteScroll: 1
 --- !u!4 &1406478396 stripped
 Transform:
@@ -4183,6 +4187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
   parallaxFactor: -0.3
+  parallaxFactorY: -0.22
   infiniteScroll: 1
 --- !u!1 &1610275795
 GameObject:
@@ -4795,7 +4800,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 30869491540058527, guid: b2a4d7bfe308d6948be497be10637268, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.84
+      value: -46.61
       objectReference: {fileID: 0}
     - target: {fileID: 30869491540058527, guid: b2a4d7bfe308d6948be497be10637268, type: 3}
       propertyPath: m_LocalPosition.y

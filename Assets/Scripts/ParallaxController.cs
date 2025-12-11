@@ -4,6 +4,7 @@ public class ParallaxController : MonoBehaviour
 {
     [Header("Parallax Settings")]
     public float parallaxFactor = 0.5f; // Factor by which the background moves relative to the camera
+    public float parallaxFactorY = 0f;
     public bool infiniteScroll = true; // Should the background scroll infinitely
     
     private Transform cameraTransform;
@@ -32,6 +33,7 @@ public class ParallaxController : MonoBehaviour
     {
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
         transform.position += new Vector3(deltaMovement.x * parallaxFactor, 0, 0);
+        transform.position += new Vector3(0, deltaMovement.y * parallaxFactorY, 0);
 
         lastCameraPosition = cameraTransform.position;
 
