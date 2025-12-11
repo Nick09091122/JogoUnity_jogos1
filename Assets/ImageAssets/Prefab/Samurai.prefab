@@ -237,5 +237,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   moveSpeed: 5
-  waypointReachedDistance: 0.1
+  waypointReachedDistance: 0.2
   loop: 1
+  damage: 1
+  attackRate: 1
+  knockbackForce: 15
