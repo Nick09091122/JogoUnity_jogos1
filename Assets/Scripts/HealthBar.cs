@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
         healthBarFill = this.GetComponent<Image>();
     }
 
-    void UpdateHealthBar(float currentHealth, float maxHealth)
+    public void UpdateHealthBar(float currentHealth, float maxHealth)
     {
         healthBarFill.fillAmount = currentHealth / maxHealth;
     }

@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
 
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
+
         if (currentHealth <= 0)
         {
             Die();
