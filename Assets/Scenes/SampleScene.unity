@@ -2533,14 +2533,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8bb9d59b899ad4a9008d9bb481e3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
-  moveSpeed: 7
-  jumpForce: 17
+  moveSpeed: 8
+  jumpForce: 5
   groundCheck: {fileID: 262958433}
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   visual: {fileID: 295566416}
+  airStopTime: 2
+  stopKey: 101
 --- !u!61 &842868305
 BoxCollider2D:
   m_ObjectHideFlags: 0
